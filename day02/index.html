@@ -11,8 +11,23 @@
             <div class="buttons">
                 <button class="digital-button">digital</button><button class="analog-button">analog</button>
             </div>
-            <div class="digital-clock-container hidden">digital</div>
-            <div class="analog-clock-container hidden">analog</div>
+            <div class="digital-clock-container hidden">
+                <div class="close-button"></div>
+                <div class="digital-clock">
+                    <div class="digital-hour d-time"></div>
+                    <div class="digital-minute d-time"></div>
+                    <div class="digital-second d-time"></div>
+                </div>
+            </div>
+            <div class="analog-clock-container hidden">
+                <div class="close-button"></div>
+                <div class="analog-clock">
+                    <div class="center"></div>
+                    <div class="analog-hour"></div>
+                    <div class="analog-minute"></div>
+                    <div class="analog-second"></div>
+                </div>
+            </div>
         </main>
         <script src="app.js"></script>
     </body>
