@@ -4,6 +4,8 @@ const $modeToggle = document.getElementById('mode');
 const $divider = document.querySelector('.divider');
 const $message = document.querySelector('.message');
 const $links = document.querySelectorAll('a');
+const $label = document.querySelector('label');
+const $ball = document.querySelector('.ball');
 
 function getColors() {
     const bodyLightColor = getComputedStyle(document.documentElement).getPropertyValue('--body-light-color');
@@ -44,26 +46,59 @@ function handleToggle() {
         darkModeBorderColor,
         darkModeLink,
     } = getColors();
-    if ($modeToggle.checked) {
-        $body.style.backgroundColor = bodyDarkColor;
-        $main.style.color = darkModeColor;
-        $main.style.backgroundColor = darkModeBgColor;
-        $divider.style.borderColor = darkModeBorderColor;
-        $message.textContent = 'This is dark mode';
-        $links.forEach(($link) => {
-            $link.style.color = darkModeLink;
-            $link.style.borderColor = darkModeLink;
-        });
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if ($modeToggle.checked) {
+            $body.style.backgroundColor = bodyLightColor;
+            $main.style.color = lightModeColor;
+            $main.style.backgroundColor = lightModeBgColor;
+            $divider.style.borderColor = lightModeBorderColor;
+            $message.textContent = 'This is dark mode';
+            $label.style.backgroundColor = lightModeColor;
+            $ball.style.backgroundColor = darkModeColor;
+            $links.forEach(($link) => {
+                $link.style.color = lightModeLink;
+                $link.style.borderColor = lightModeLink;
+            });
+        } else {
+            $body.style.backgroundColor = bodyDarkColor;
+            $main.style.color = darkModeColor;
+            $main.style.backgroundColor = darkModeBgColor;
+            $divider.style.borderColor = darkModeBorderColor;
+            $message.textContent = 'This is light mode';
+            $label.style.backgroundColor = darkModeColor;
+            $ball.style.backgroundColor = lightModeColor;
+            $links.forEach(($link) => {
+                $link.style.color = darkModeLink;
+                $link.style.borderColor = darkModeLink;
+            });
+        }
     } else {
-        $body.style.backgroundColor = bodyLightColor;
-        $main.style.color = lightModeColor;
-        $main.style.backgroundColor = lightModeBgColor;
-        $divider.style.borderColor = lightModeBorderColor;
-        $message.textContent = 'This is light mode';
-        $links.forEach(($link) => {
-            $link.style.color = lightModeLink;
-            $link.style.borderColor = lightModeLink;
-        });
+        if ($modeToggle.checked) {
+            $body.style.backgroundColor = bodyDarkColor;
+            $main.style.color = darkModeColor;
+            $main.style.backgroundColor = darkModeBgColor;
+            $divider.style.borderColor = darkModeBorderColor;
+            $message.textContent = 'This is dark mode';
+            $label.style.backgroundColor = darkModeColor;
+            $ball.style.backgroundColor = lightModeColor;
+            $links.forEach(($link) => {
+                $link.style.color = darkModeLink;
+                $link.style.borderColor = darkModeLink;
+            });
+        } else {
+            $body.style.backgroundColor = bodyLightColor;
+            $main.style.color = lightModeColor;
+            $main.style.backgroundColor = lightModeBgColor;
+            $divider.style.borderColor = lightModeBorderColor;
+            $message.textContent = 'This is light mode';
+            $label.style.backgroundColor = lightModeColor;
+            $ball.style.backgroundColor = darkModeColor;
+            $links.forEach(($link) => {
+                $link.style.color = lightModeLink;
+                $link.style.borderColor = lightModeLink;
+            });
+        }
     }
 }
 
