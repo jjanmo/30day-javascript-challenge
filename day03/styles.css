@@ -33,6 +33,7 @@ header {
     align-items: center;
     font-size: 2rem;
     margin: 4rem 0 2rem;
+    position: relative;
 }
 input[type='checkbox'] {
     opacity: 0;
@@ -141,6 +142,31 @@ main > p {
     margin: 0.5rem;
     font-size: 1rem;
     width: 100px;
+}
+
+.bubble {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    background-color: #95a5a6;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    border-top: 15px solid #95a5a6;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
 }
 
 /* prefers-color-scheme 설정 */

@@ -26,7 +26,7 @@
 | :--: | :----------------------------------------------: | :------: |
 |  01  |        [Piano Keyboard](day01/README.md)         | 20.08.17 |
 |  02  | [Digital Clock vs Analog Clock](day02/README.md) | 20.08.18 |
-|  03  |                    Dark Mode                     | 20.08.19 |
+|  03  |           [Dark Mode](day03/README.md)           | 20.08.19 |
 |      |                                                  |          |
 |      |                                                  |          |
 |      |                                                  |          |
