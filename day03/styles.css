@@ -1,13 +1,14 @@
 :root {
-    --body-bg-color: #eee;
+    --body-light-color: #fff;
     --light-mode-color: #121212;
-    --light-mode-bg-color: #fff;
+    --light-mode-bg-color: #eee;
     --light-mode-border: #2f5667;
+    --light-link-color: #2980b9;
+    --body-dark-color: #0f0f0f;
     --dark-mode-color: #ededed;
     --dark-mode-bg-color: #262626;
     --dark-mode-border: #74f7cd;
-    --hover-bg-color: #0984e3;
-    --hover-color: #fff;
+    --dark-link--color: #55efc4;
 }
 * {
     padding: 0;
@@ -16,12 +17,15 @@
 }
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: var(--body-bg-color);
+    background-color: var(--body-light-color);
+    transition: all 0.5s ease-in-out;
 }
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--light-link-color);
+    border-color: var(--light-link-color);
 }
+
 header {
     width: 100%;
     display: flex;
@@ -65,15 +69,10 @@ input[type='checkbox']:checked + label > .ball {
 .fa-moon {
     color: #ffd800;
 }
-.divider {
-    width: 90%;
-    border: 3px solid var(--light-mode-border);
-}
+
 main {
     width: 60vw;
     margin: auto;
-    color: var(--light-mode-color);
-    background-color: var(--light-mode-bg-color);
     box-shadow: 0 5px 10px rgba(32, 32, 32, 0.5);
     padding: 1rem 2rem;
     display: flex;
@@ -81,6 +80,8 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    background-color: var(--light-mode-bg-color);
+    color: var(--light-mode-color);
 }
 h1 {
     width: 100%;
@@ -88,21 +89,25 @@ h1 {
     font-size: 2.5rem;
     margin: 1rem 0;
 }
+.divider {
+    width: 90%;
+    border: 3px solid var(--light-mode-border);
+    transition: all 0.5s ease-in-out;
+}
 a {
     width: 20%;
     text-align: center;
-    border: 2px solid var(--hover-bg-color);
+    border: 2px solid;
     border-radius: 1em;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     cursor: pointer;
     text-transform: uppercase;
-    color: #2980b9;
+    transition: 0.3s border-radius ease-in-out;
 }
 a:hover {
-    background-color: var(--hover-bg-color);
-    color: var(--hover-color);
+    border-radius: 0.2em;
 }
 .contents {
     font-size: 1.2rem;
