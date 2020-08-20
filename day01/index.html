@@ -1,113 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles.css" />
-		<title>Keyboard Piano</title>
-	</head>
-	<body>
-		<main>
-			<p class="notification">
-				<span
-					>🔷 Piano note is <span class="black color">BLACK</span> letter</span
-				>
-				<span
-					>🔷 <span class="red color">RED</span> letter is keyboard you can
-					press</span
-				>
-			</p>
-			<div class="board">
-				<div class="white-key" data-key="65">
-					<span class="note">C3</span>
-					<span class="keyboard">A</span>
-				</div>
-				<div class="black-key first"></div>
-				<div class="white-key" data-key="83">
-					<span class="note">D3</span>
-					<span class="keyboard">S</span>
-				</div>
-				<div class="black-key second"></div>
-				<div class="white-key" data-key="68">
-					<span class="note">E3</span>
-					<span class="keyboard">D</span>
-				</div>
-				<div class="white-key" data-key="70">
-					<span class="note">F3 </span>
-					<span class="keyboard">F</span>
-				</div>
-				<div class="black-key third"></div>
-				<div class="white-key" data-key="71">
-					<span class="note">G3</span>
-					<span class="keyboard">G</span>
-				</div>
-				<div class="black-key forth"></div>
-				<div class="white-key" data-key="72">
-					<span class="note">A3</span>
-					<span class="keyboard">H</span>
-				</div>
-				<div class="black-key fifth"></div>
-				<div class="white-key" data-key="74">
-					<span class="note">B3</span>
-					<span class="keyboard">J</span>
-				</div>
-				<div class="white-key" data-key="75">
-					<span class="note">C4</span>
-					<span class="keyboard">K</span>
-				</div>
-				<div class="black-key sixth"></div>
-				<div class="white-key" data-key="76">
-					<span class="note">D4</span>
-					<span class="keyboard">L</span>
-				</div>
-				<div class="black-key seventh"></div>
-				<div class="white-key" data-key="186">
-					<span class="note">E4</span>
-					<span class="keyboard">;</span>
-				</div>
-			</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Keyboard Piano</title>
+    </head>
+    <body>
+        <main>
+            <p class="notification">
+                <span>🔷 Piano note is <span class="black color">BLACK</span> letter</span>
+                <span>🔷 <span class="red color">RED</span> letter is keyboard you can press</span>
+            </p>
+            <div class="board">
+                <div class="white-key" data-key="65">
+                    <span class="note">C3</span>
+                    <span class="keyboard">A</span>
+                </div>
+                <div class="black-key first"></div>
+                <div class="white-key" data-key="83">
+                    <span class="note">D3</span>
+                    <span class="keyboard">S</span>
+                </div>
+                <div class="black-key second"></div>
+                <div class="white-key" data-key="68">
+                    <span class="note">E3</span>
+                    <span class="keyboard">D</span>
+                </div>
+                <div class="white-key" data-key="70">
+                    <span class="note">F3 </span>
+                    <span class="keyboard">F</span>
+                </div>
+                <div class="black-key third"></div>
+                <div class="white-key" data-key="71">
+                    <span class="note">G3</span>
+                    <span class="keyboard">G</span>
+                </div>
+                <div class="black-key forth"></div>
+                <div class="white-key" data-key="72">
+                    <span class="note">A3</span>
+                    <span class="keyboard">H</span>
+                </div>
+                <div class="black-key fifth"></div>
+                <div class="white-key" data-key="74">
+                    <span class="note">B3</span>
+                    <span class="keyboard">J</span>
+                </div>
+                <div class="white-key" data-key="75">
+                    <span class="note">C4</span>
+                    <span class="keyboard">K</span>
+                </div>
+                <div class="black-key sixth"></div>
+                <div class="white-key" data-key="76">
+                    <span class="note">D4</span>
+                    <span class="keyboard">L</span>
+                </div>
+                <div class="black-key seventh"></div>
+                <div class="white-key" data-key="186">
+                    <span class="note">E4</span>
+                    <span class="keyboard">;</span>
+                </div>
+            </div>
 
-			<audio
-				data-key="72"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"
-			></audio>
-			<audio
-				data-key="74"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"
-			></audio>
-			<audio
-				data-key="65"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"
-			></audio>
-			<audio
-				data-key="75"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"
-			></audio>
-			<audio
-				data-key="83"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"
-			></audio>
-			<audio
-				data-key="76"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"
-			></audio>
-			<audio
-				data-key="68"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"
-			></audio>
-			<audio
-				data-key="186"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"
-			></audio>
-			<audio
-				data-key="70"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"
-			></audio>
-			<audio
-				data-key="71"
-				src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"
-			></audio>
-			<script src="app.js"></script>
-		</main>
-	</body>
+            <audio data-key="72" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
+            <audio data-key="74" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio>
+            <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
+            <audio data-key="75" src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"></audio>
+            <audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
+            <audio data-key="76" src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"></audio>
+            <audio data-key="68" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
+            <audio data-key="186" src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"></audio>
+            <audio data-key="70" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
+            <audio data-key="71" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
+            <script src="./app.js"></script>
+        </main>
+    </body>
 </html>
