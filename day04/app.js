@@ -14,6 +14,7 @@ function fetchData() {
         .then((response) => response.json())
         .then((json) => {
             const { rates, date } = json;
+
             $toInput.value = (target * rates[to]).toFixed(5);
             $updateDate.textContent = date;
         });
