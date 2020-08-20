@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://kit.fontawesome.com/1433f86547.js" crossorigin="anonymous"></script>
+        <title>Currency Converter</title>
+    </head>
+    <body>
+        <main>
+            <h1>Currency Converter</h1>
+            <h3 class="update-date"></h3>
+            <p class="warning"><i class="fas fa-exclamation-circle"></i>This is not a latest data</p>
+            <div>
+                <label for="from-input"></label>
+                <input type="number" name="input" id="from-input" value="1" />
+                <select name="from-currency" id="from-currency">
+                    <option value="CAD">캐나다 달러</option>
+                    <option value="HKD">홍콩 달러</option>
+                    <option value="ISK">아이슬란드 크라나</option>
+                    <option value="PHP">필리핀 피소</option>
+                    <option value="DKK">덴마크 크로네</option>
+                    <option value="HUF">헝가리 포린트</option>
+                    <option value="CZK">체코 코루나</option>
+                    <option value="GBP">파운드 스털링</option>
+                    <option value="SEK">스웨덴 크로나</option>
+                    <option value="IDR">인도네시아 루피아</option>
+                    <option value="INR">인도 루피</option>
+                    <option value="BRL">브라질 헤알</option>
+                    <option value="RUB">러시아 루블</option>
+                    <option value="HRK">크로아티아 쿠나</option>
+                    <option value="JPY">일본 엔</option>
+                    <option value="THB">태국 바트</option>
+                    <option value="CHF">스위스 프랑</option>
+                    <option value="EUR">유로</option>
+                    <option value="MYR">말레이시아 링깃</option>
+                    <option value="BGN">불가리아 레프</option>
+                    <option value="TRY">터키 리라</option>
+                    <option value="CNY">중국 위안</option>
+                    <option value="NOK">노르웨이 크로네</option>
+                    <option value="NZD">뉴질랜드 달러</option>
+                    <option value="ZAR">남아프리카 공화국 랜드</option>
+                    <option value="USD">미국 달러</option>
+                    <option value="MXN">멕시코 페소</option>
+                    <option value="SGD">싱가포르 달러</option>
+                    <option value="AUD">오스트레일리아 달러</option>
+                    <option value="ILS">이스라엘 신 셰켈</option>
+                    <option value="KRW" selected>대한민국 원</option>
+                    <option value="PLN">폴란드 즈워티</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="result" readonly />
+                <select name="to-currency" id="to-currency">
+                    <option value="CAD">캐나다 달러</option>
+                    <option value="HKD">홍콩 달러</option>
+                    <option value="ISK">아이슬란드 크라나</option>
+                    <option value="PHP">필리핀 피소</option>
+                    <option value="DKK">덴마크 크로네</option>
+                    <option value="HUF">헝가리 포린트</option>
+                    <option value="CZK">체코 코루나</option>
+                    <option value="GBP">파운드 스털링</option>
+                    <option value="SEK">스웨덴 크로나</option>
+                    <option value="IDR">인도네시아 루피아</option>
+                    <option value="INR">인도 루피</option>
+                    <option value="BRL">브라질 헤알</option>
+                    <option value="RUB">러시아 루블</option>
+                    <option value="HRK">크로아티아 쿠나</option>
+                    <option value="JPY">일본 엔</option>
+                    <option value="THB">태국 바트</option>
+                    <option value="CHF">스위스 프랑</option>
+                    <option value="EUR">유로</option>
+                    <option value="MYR">말레이시아 링깃</option>
+                    <option value="BGN">불가리아 레프</option>
+                    <option value="TRY">터키 리라</option>
+                    <option value="CNY">중국 위안</option>
+                    <option value="NOK">노르웨이 크로네</option>
+                    <option value="NZD">뉴질랜드 달러</option>
+                    <option value="ZAR">남아프리카 공화국 랜드</option>
+                    <option value="USD" selected>미국 달러</option>
+                    <option value="MXN">멕시코 페소</option>
+                    <option value="SGD">싱가포르 달러</option>
+                    <option value="AUD">오스트레일리아 달러</option>
+                    <option value="ILS">이스라엘 신 셰켈</option>
+                    <option value="KRW">대한민국 원</option>
+                    <option value="PLN">폴란드 즈워티</option>
+                </select>
+            </div>
+        </main>
+        <script src="app.js"></script>
+    </body>
+</html>
