@@ -5,6 +5,8 @@ const $imageCount = document.querySelector('.image-count');
 const $imageList = document.querySelector('.image-list');
 const $loader = document.querySelector('.loader');
 
+const throttle = makeThrottle(fetchData, 700);
+
 let prevImages = null;
 let curImages = null;
 
@@ -31,7 +33,6 @@ function fetchData() {
     fetch(URL)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             curImages = prevImages ? [...prevImages, ...data] : data;
             prevImages = curImages;
             render(curImages);
@@ -43,36 +44,39 @@ function render(images) {
     $imageList.innerHTML = '';
     $imageCount.textContent = images.length;
     images.forEach((image) => {
-        const $link = document.createElement('a');
-        $link.className = 'link';
-        $link.href = image.links.html;
-        $link.target = '_blank';
-
-        const $div = document.createElement('div');
-        $div.style.background = `url(${image.urls.regular}) no-repeat 0 0 / cover`;
-        $div.className = 'image';
-
-        const $location = document.createElement('span');
-        $location.className = 'location';
-        $location.textContent = `${image.location.title || ''}`;
-
-        const $like = document.createElement('span');
-        $like.textContent = `❤ ${image.likes}`;
-        $like.className = 'like';
-
-        $div.append($location, $like);
-        $link.append($div);
-        $imageList.append($link);
+        makeImageBox(image);
     });
 }
 
+function makeImageBox(image) {
+    const $link = document.createElement('a');
+    $link.className = 'link';
+    $link.href = image.links.html;
+    $link.target = '_blank';
+
+    const $div = document.createElement('div');
+    $div.style.background = `url(${image.urls.regular}) no-repeat 0 0 / cover`;
+    $div.className = 'image';
+
+    const $location = document.createElement('span');
+    $location.className = 'location';
+    $location.textContent = `${image.location.title || ''}`;
+
+    const $like = document.createElement('span');
+    $like.textContent = `❤ ${image.likes}`;
+    $like.className = 'like';
+
+    $div.append($location, $like);
+    $link.append($div);
+    $imageList.append($link);
+}
+
 function handleScroll(e) {
-    const _throttle = makeThrottle(fetchData, 700);
     if (
         document.documentElement.scrollTop + window.innerHeight >=
         document.documentElement.offsetHeight
     ) {
-        _throttle();
+        throttle();
     }
 }
 

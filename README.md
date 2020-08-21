@@ -28,7 +28,7 @@
 |  02  | [Digital Clock vs Analog Clock](day02/README.md) | 20.08.18 |
 |  03  |           [Dark Mode](day03/README.md)           | 20.08.19 |
 |  04  |      [Currency Converter](day04/README.md)       | 20.08.20 |
-|  05  |                 Infinite Scroll                  | 20.08.21 |
+|  05  |        [Infinite Scroll](day05/README.md)        | 20.08.21 |
 |      |                                                  |          |
 |      |                                                  |          |
 |      |                                                  |          |
