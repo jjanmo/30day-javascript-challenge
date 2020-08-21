@@ -84,4 +84,6 @@ function makeThrottle(func, wait) {
 
 # Improvement
 
+-   Lazy Loading 구현하기(아래의 Intersection Observer을 이용하지 않고)
+
 -   [Intersection Observer](https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API)로 무한 스크롤 구현하기
