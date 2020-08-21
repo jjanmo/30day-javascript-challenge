@@ -87,3 +87,28 @@ function makeThrottle(func, wait) {
 -   Lazy Loading 구현하기(아래의 Intersection Observer을 이용하지 않고)
 
 -   [Intersection Observer](https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API)로 무한 스크롤 구현하기
+
+<br />
+<br />
+
+### TMI : `Infinite Scrolling vs. Pagination` Summary
+
+✅ 무한스크롤의 장점
+- 사용자가 웹페이지에 머무는 시간을 늘림으로서 사용자 참여를 증가시킨다
+- 많은 양의 정보를 빠르게 제공하고자하는 경우 좋다 ex) 페이스북의 피드
+- 클릭보다 마우스휠 혹은 터치스크린에서의 사용자 경험이 더 좋다
+- 스크롤은 모바일 기기에 적합하다(터치스크린)
+
+✅ 무한스크롤의 단점
+- 한 페이지에서 많은 양의 컨텐츠를 무한 로딩하는 것은 효율이 떨어진다
+- 무한 컨텐츠에서 내가 원하는 컨텐츠를 찾고 위치를 기억하는데 어려움이 있다.
+- 부적절한 스크롤바
+- footer가 사라지기 때문에 footer의 존재 이유가 사라진다
+
+✅ 페이징의 장점
+- 찾고자하는 컨텐츠의 위치를 특정할 수 있다
+- 검색한 결과값을 볼 수 있기 때문에 어느정도 예측가능하다
+
+✅ 페이징의 단점
+- 페이지당 제한된 컨텐츠에 대한 접근
+- 추가 컨텐츠를 위한 또 다른 액션이 필요하다
