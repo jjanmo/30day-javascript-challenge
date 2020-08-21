@@ -62,7 +62,7 @@ input[type='checkbox']:checked + label > .ball {
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .fa-sun {
     color: #e67e22;
@@ -190,5 +190,11 @@ main > p {
     }
     .divider {
         border-color: var(--dark-mode-border);
+    }
+    .ball {
+        transform: translateX(45px);
+    }
+    input[type='checkbox']:checked + label > .ball {
+        transform: translateX(0);
     }
 }
