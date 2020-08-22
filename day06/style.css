@@ -15,7 +15,6 @@ header {
     width: 100%;
     margin: 2rem 0;
 }
-
 .searchbar {
     display: flex;
     flex-direction: column;
@@ -27,7 +26,7 @@ header {
     padding: 1rem;
     border-radius: 10px;
 }
-.searchbar > .text {
+.text {
     display: flex;
     width: 90%;
     justify-content: center;
@@ -43,14 +42,13 @@ header {
     border-radius: 40px;
     letter-spacing: 2px;
 }
-.searchbar > div:last-child {
-    grid-column: 3/5;
-    grid-row: 3;
+
+.button-container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3 1fr);
 }
-.searchbar > div:last-child > button {
+button {
     all: unset;
     display: inline-block;
     font-size: 1rem;
@@ -60,33 +58,40 @@ header {
     padding: 0.5rem 0;
     color: #5a84a2;
     background-color: #fff;
-
     border-radius: 40px;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5),
         inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
     margin: 0.5rem 0.2rem;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
-.searchbar > div:last-child > button:hover {
+button:hover {
     box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
         inset -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1),
         2px 2px 8px rgba(0, 0, 0, 0.15);
 }
-
-.searchbar > div:last-child > button:active {
-    transform: scale(1.08);
+button:active {
+    transform: scale(1.09);
 }
-
 .clicked {
     background-color: #f8c291;
-    background-color: #ea8685;
 }
-
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.message {
+    width: 70%;
+    color: #eee;
+    background-color: #81ecec;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .movie-container {
     width: 70%;
@@ -104,7 +109,4 @@ main {
     height: 225px;
     margin: 15px auto;
     border-radius: 10px;
-}
-.empty {
-    background-color: rgba(0, 0, 0, 0.7);
 }

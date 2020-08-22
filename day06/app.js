@@ -591,7 +591,8 @@ const movies = [
         genre_ids: [28, 80, 18, 9648, 53],
         title: 'Ava',
         vote_average: 5.5,
-        overview: 'A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.',
+        overview:
+            'A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.',
         release_date: '2020-08-06',
     },
     {
@@ -1512,53 +1513,86 @@ const movies = [
     },
 ];
 
-const genres = [
-    { id: 28, name: 'Action' },
-    { id: 12, name: 'Adventure' },
-    { id: 16, name: 'Animation' },
-    { id: 35, name: 'Comedy' },
-    { id: 80, name: 'Crime' },
-    { id: 99, name: 'Documentary' },
-    { id: 18, name: 'Drama' },
-    { id: 10751, name: 'Family' },
-    { id: 14, name: 'Fantasy' },
-    { id: 36, name: 'History' },
-    { id: 27, name: 'Horror' },
-    { id: 10402, name: 'Music' },
-    { id: 9648, name: 'Mystery' },
-    { id: 10749, name: 'Romance' },
-    { id: 878, name: 'Science Fiction' },
-    { id: 10770, name: 'TV Movie' },
-    { id: 53, name: 'Thriller' },
-    { id: 10752, name: 'War' },
-    { id: 37, name: 'Western' },
-];
+const genres = {
+    Action: 28,
+    Adventure: 12,
+    Animation: 16,
+    Comedy: 35,
+    Crime: 80,
+    Documentary: 99,
+    Drama: 18,
+    Family: 10751,
+    Fantasy: 14,
+    History: 36,
+    Horror: 27,
+    Music: 10402,
+    Mystery: 9648,
+    Romance: 10749,
+    'Science Fiction': 878,
+    'TV Movie': 10770,
+    Thriller: 53,
+    War: 10752,
+    Western: 37,
+};
 
-console.log(movies);
-
-const $searchbar = document.querySelector('.searchbar');
+const $buttonContainer = document.querySelector('.button-container');
 const $movielist = document.querySelector('.movielist');
+const $message = document.querySelector('.message');
 
-function filterMovie() {}
+function filterMovie(movies, genreIds) {
+    let filteredMovies = movies.slice();
+    if (genreIds) {
+        genreIds.forEach((id) => {
+            filteredMovies = filteredMovies.filter((movie) => movie.genre_ids.includes(id));
+        });
+    }
+    console.log(filteredMovies);
+    renderMovies(filteredMovies);
+}
 
-function renderAllMovie() {
+function renderMovies(movies) {
     const $movies = movies.map((movie) => makeMovieBox(movie));
-    console.log($movies);
+    $movielist.innerHTML = '';
     $movielist.append(...$movies);
+    setMessage(movies);
+}
+
+function setMessage(movies) {
+    $message.textContent = `Find ${movies.length} movies 🎥`;
 }
 
 function makeMovieBox(movie) {
     const $movie = document.createElement('div');
     $movie.className = 'movie';
-    $movie.style.background = `url(https://image.tmdb.org/t/p/w200${movie.poster_path}) no-repeat 0 0 / cover`;
+    if (movie.poster_path) {
+        $movie.style.background = `url(https://image.tmdb.org/t/p/w200${movie.poster_path}) no-repeat 0 0 / cover`;
+    } else $movie.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
     return $movie;
 }
 
-function handleClickSearchBar(e) {}
+function checkGenres() {
+    const $buttons = document.querySelectorAll('button');
+    const genreIds = Array.from($buttons)
+        .filter(($button) => $button.classList.contains('clicked'))
+        .map(($button) => genres[$button.textContent]);
+    return genreIds;
+}
+
+function handleClickButton(e) {
+    const { target } = e;
+    if (target.tagName === 'BUTTON') {
+        if (target.classList.contains('clicked')) {
+            target.classList.remove('clicked');
+        } else {
+            target.classList.add('clicked');
+        }
+        filterMovie(movies, checkGenres());
+    }
+}
 
 function init() {
-    $searchbar.addEventListener('click', handleClickSearchBar);
-    renderAllMovie();
+    renderMovies(movies);
+    $buttonContainer.addEventListener('click', handleClickButton);
 }
 
 init();
