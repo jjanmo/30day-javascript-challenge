@@ -1567,6 +1567,20 @@ function makeMovieBox(movie) {
     if (movie.poster_path) {
         $movie.style.background = `url(https://image.tmdb.org/t/p/w200${movie.poster_path}) no-repeat 0 0 / cover`;
     } else $movie.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+
+    const $title = document.createElement('span');
+    $title.className = 'content title';
+    $title.textContent = movie.title;
+
+    const $rating = document.createElement('span');
+    $rating.className = 'content rating';
+    $rating.textContent = `⭐${movie.vote_average}`;
+
+    const $released = document.createElement('span');
+    $released.className = 'content released';
+    $released.textContent = movie.release_date.split('-').join('.');
+    $movie.append($title, $released, $rating);
+
     return $movie;
 }
 
@@ -1590,9 +1604,17 @@ function handleClickButton(e) {
     }
 }
 
+function handleClickMovie(e) {
+    const { target } = e;
+    if (target.classList.contains('movie')) {
+        console.log('movie');
+    }
+}
+
 function init() {
     renderMovies(movies);
     $buttonContainer.addEventListener('click', handleClickButton);
+    $movielist.addEventListener('click', handleClickMovie);
 }
 
 init();

@@ -20,7 +20,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
     background-color: #fab1a0;
     padding: 1rem;
@@ -83,7 +83,7 @@ main {
     align-items: center;
 }
 .message {
-    width: 70%;
+    width: 75%;
     color: #eee;
     background-color: #81ecec;
     padding: 0.5rem 0;
@@ -94,19 +94,67 @@ main {
     font-weight: 600;
 }
 .movie-container {
-    width: 70%;
+    width: 75%;
     background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem 0;
 }
 .movielist {
     display: grid;
     grid-template-columns: repeat(6, 200px);
 }
 .movie {
+    position: relative;
     width: 150px;
     height: 225px;
     margin: 15px auto;
     border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+.movie:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+.movie:hover {
+    transform: scale(1.1);
+}
+.movie:hover.movie:after {
+    background-color: transparent;
+}
+.content {
+    position: absolute;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+}
+.title {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+}
+.rating {
+    bottom: 10px;
+    left: 5px;
+}
+.released {
+    bottom: 10px;
+    right: 5px;
+}
+.movie:hover .title,
+.movie:hover .rating,
+.movie:hover .released {
+    opacity: 0;
 }
