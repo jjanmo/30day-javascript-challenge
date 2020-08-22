@@ -1549,8 +1549,15 @@ function filterMovie(movies, genreIds) {
             filteredMovies = filteredMovies.filter((movie) => movie.genre_ids.includes(id));
         });
     }
-    console.log(filteredMovies);
     renderMovies(filteredMovies);
+}
+
+function checkGenres() {
+    const $buttons = document.querySelectorAll('button');
+    const genreIds = Array.from($buttons)
+        .filter(($button) => $button.classList.contains('clicked'))
+        .map(($button) => genres[$button.textContent]);
+    return genreIds;
 }
 
 function renderMovies(movies) {
@@ -1588,26 +1595,6 @@ function makeMovieBox(movie) {
     return $movie;
 }
 
-function checkGenres() {
-    const $buttons = document.querySelectorAll('button');
-    const genreIds = Array.from($buttons)
-        .filter(($button) => $button.classList.contains('clicked'))
-        .map(($button) => genres[$button.textContent]);
-    return genreIds;
-}
-
-function handleClickButton(e) {
-    const { target } = e;
-    if (target.tagName === 'BUTTON') {
-        if (target.classList.contains('clicked')) {
-            target.classList.remove('clicked');
-        } else {
-            target.classList.add('clicked');
-        }
-        filterMovie(movies, checkGenres());
-    }
-}
-
 function makeModal(movie) {
     const $poster = document.querySelector('.poster');
     if (movie.poster_path) {
@@ -1636,16 +1623,28 @@ function makeModal(movie) {
     $modal.classList.remove('hidden');
 }
 
+function handleClickButton(e) {
+    const { target } = e;
+    if (target.tagName === 'BUTTON') {
+        if (target.classList.contains('clicked')) {
+            target.classList.remove('clicked');
+        } else {
+            target.classList.add('clicked');
+        }
+        filterMovie(movies, checkGenres());
+    }
+}
+
 function handleClickMovie(e) {
     const { target } = e;
-    console.log(target);
+
     let movieId;
     if (target.classList.contains('movie')) {
         movieId = target.dataset.id;
     } else if (target.classList.contains('contents')) {
         movieId = target.parentElement.dataset.id;
     }
-    console.log(movieId);
+
     const clickedMovie = movies.filter((movie) => movie.id === Number(movieId))[0];
     makeModal(clickedMovie);
 }

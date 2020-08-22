@@ -191,8 +191,8 @@ main {
 
 .poster {
     grid-column: 1;
-    width: 200px;
-    height: 300px;
+    width: 220px;
+    height: 320px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(32, 32, 32, 0.5);
