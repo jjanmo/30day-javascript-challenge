@@ -8,6 +8,8 @@
 
 > 버튼을 눌러서 디지털 시계와 아날로그 시계를 골라서 사용할 수 있다.
 
+![update-analog-clock](./image/analog-clock.PNG)
+
 # Challenge
 
 ## analog clock
