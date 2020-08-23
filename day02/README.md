@@ -76,9 +76,45 @@
 
 <br/>
 
-### How to use CSS variable in javascript
+### How to use CSS variable in JavaScript : **UPDATE**
 
+ > 시계 바늘을 좀 더 매끄럽게 변경하는데 사용하였다.
 
+```CSS
+.hand{
+  /* ... */
+  --rotation : 0;
+  transform : translateX(-50%) rotate(var(--rotation));
+}
+```
+> 시계 바늘의 공통 CSS를 추가한다.
+
+```JavaScript
+function paintAnalogClock(){
+  //....
+  const now = getTime();
+  secondsRatio = now.getSeconds() / 60;
+  miniutesRatio = (secondsRatio  + now.getMinutes()) / 60;
+  hoursRatio = (miniutesRatio + now.getHours()) / 12;
+
+  setRotationRatioPerDegree($secondhand, value);
+  setRotationRatioPerDegree($minutehand, value);
+  setRotationRatioPerDegree($hourhand, value);
+}
+
+function setRotationRatioPerDegree(element, value){
+  element.style.setProperty('--rotate-degree', `${value * 360}deg`); 
+}
+```
+>  처음 방법은 rotate degree를 매 초마다 직접 구해서 그 값을 이용해서 transform rotate를 수행하였다. 그렇게 하면 분/시 바늘이 점차적으로 움직이지 않고 초가 분이 바뀌거나 시가 바뀌는경우에만 움직이게 된다. 즉 바늘의 움직임이 약간 부자연스러울 수 있다.(점핑현상이 나타난다.)
+ 
+> 지금 방법은 각 초와 분과 시 바늘의 현재의 위치가 시계 전체(360도) 중에서 얼마의 비율을 갖고 있는지를 구한 것이다. 거기에 초가 지남에 따라서, 분이 지남에 따라서 바늘이 아주 조금씩 움직이는데 초/분 비율을 더함으로서 이를 나타내었다. 이제 분/시 바늘은 자연스럽게 움직인다.
+
+>	 `element.style.setProperty('property-name', value)` CSS variable 역시 property이기 때문에 이렇게 접근이 가능하다(setter)
+
+> **주의)** rotate(⭐)  안의 별표의 값은 `숫자deg` 이다. 그렇기 때문에 value가 숫자만 아님을 인지하다. 
+
+<br />
 
 # Improvement
 
@@ -94,4 +130,4 @@
 
     > **생각)** 이런 식으로 삼각함수를 이용하여 접근하여 고민하다보면 해결되지않을까🙄
 
-    > > **Update)** 이 부분을 이렇게 계산을 하지않고 `CSS transform rotate` 만으로 해결하는 방법이 있었다. 하지만 숫자가 뒤집어진다는 단점이 있다.😨
+    > > **UPDATE)** 이 부분을 이렇게 계산을 하지않고 `CSS transform rotate` 만으로 해결하는 방법이 있었다. 하지만 숫자가 뒤집어진다는 단점이 있다.😨
