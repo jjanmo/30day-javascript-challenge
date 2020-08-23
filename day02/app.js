@@ -30,9 +30,17 @@ function paintAnalogClock() {
     const $analogSecond = document.querySelector('.analog-second');
     const timeObj = getTime();
 
-    $analogHour.style.transform = `rotate(${timeObj.hour * 30}deg)`;
-    $analogMinute.style.transform = `rotate(${timeObj.minute * 6}deg)`;
-    $analogSecond.style.transform = `rotate(${timeObj.second * 6}deg)`;
+    const secondsRatio = timeObj.second / 60;
+    const miniutesRatio = (secondsRatio + timeObj.minute) / 60;
+    const hoursRatio = (miniutesRatio + timeObj.hour) / 12;
+
+    setRotationRatioPerDegree($analogSecond, secondsRatio);
+    setRotationRatioPerDegree($analogMinute, miniutesRatio);
+    setRotationRatioPerDegree($analogHour, hoursRatio);
+}
+
+function setRotationRatioPerDegree(element, value) {
+    element.style.setProperty('--rotate-degree', `${value * 360}deg`);
 }
 
 function paintDigitalClock() {
