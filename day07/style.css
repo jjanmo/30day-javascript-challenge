@@ -47,10 +47,13 @@ h1 > span {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 .key:hover {
     background-color: #54a0ff;
+}
+.key:active {
+    transform: scale(1.1);
 }
 
 .container > .item:first-child {
