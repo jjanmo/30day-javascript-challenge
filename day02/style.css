@@ -24,6 +24,8 @@ body {
         #46eefa,
         #5ffbf1
     );
+    width: 100%;
+    height: 100vh;
 }
 a {
     text-decoration: none;

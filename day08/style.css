@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Alata', sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #222222;
+}
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #eee;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.image-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+.left-image,
+.right-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 960px;
+    height: 640px;
+}
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    width: 50%;
+    margin: 0 auto;
+}
+.left-bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.right-bar {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.thumb {
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.thumb:hover:not(.selected) {
+    transform: scale(1.1);
+}
+.thumb1 {
+    background-image: url('./image/dog1.jpg');
+}
+.thumb2 {
+    background-image: url('./image/dog2.jpg');
+}
+.thumb3 {
+    background-image: url('./image/dog3.jpg');
+}
+.thumb4 {
+    background-image: url('./image/dog4.jpg');
+}
+.thumb5 {
+    background-image: url('./image/dog5.jpg');
+}
+.thumb6 {
+    background-image: url('./image/dog6.jpg');
+}
+.thumb7 {
+    background-image: url('./image/dog7.jpg');
+}
+.thumb8 {
+    background-image: url('./image/dog8.jpg');
+}
+.thumb9 {
+    background-image: url('./image/dog9.jpg');
+}
+.thumb10 {
+    background-image: url('./image/dog10.jpg');
+}
+.thumb11 {
+    background-image: url('./image/dog11.jpg');
+}
+.thumb12 {
+    background-image: url('./image/dog12.jpg');
+}
+.thumb13 {
+    background-image: url('./image/dog13.jpg');
+}
+.thumb14 {
+    background-image: url('./image/dog14.jpg');
+}
+.thumb15 {
+    background-image: url('./image/dog15.jpg');
+}
+.thumb16 {
+    background-image: url('./image/dog16.jpg');
+}
+.show {
+    z-index: 10;
+    opacity: 1;
+}
+.hidden {
+    display: none;
+}
+.selected {
+    border-radius: 10px;
+    padding-bottom: 1rem;
+    border-bottom: 20px solid rgba(255, 255, 255, 0.5);
+}
