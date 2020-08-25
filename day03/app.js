@@ -8,36 +8,16 @@ const $label = document.querySelector('label');
 const $ball = document.querySelector('.ball');
 
 function getColors() {
-    const bodyLightColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--body-light-color'
-    );
-    const lightModeColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--light-mode-color'
-    );
-    const lightModeBgColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--light-mode-bg-color'
-    );
-    const lightModeBorderColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--light-mode-border'
-    );
-    const lightModeLink = getComputedStyle(document.documentElement).getPropertyValue(
-        '--light-link-color'
-    );
-    const bodyDarkColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--body-dark-color'
-    );
-    const darkModeColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--dark-mode-color'
-    );
-    const darkModeBgColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--dark-mode-bg-color'
-    );
-    const darkModeBorderColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--dark-mode-border'
-    );
-    const darkModeLink = getComputedStyle(document.documentElement).getPropertyValue(
-        '--dark-link--color'
-    );
+    const bodyLightColor = getComputedStyle(document.documentElement).getPropertyValue('--body-light-color');
+    const lightModeColor = getComputedStyle(document.documentElement).getPropertyValue('--light-mode-color');
+    const lightModeBgColor = getComputedStyle(document.documentElement).getPropertyValue('--light-mode-bg-color');
+    const lightModeBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--light-mode-border');
+    const lightModeLink = getComputedStyle(document.documentElement).getPropertyValue('--light-link-color');
+    const bodyDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--body-dark-color');
+    const darkModeColor = getComputedStyle(document.documentElement).getPropertyValue('--dark-mode-color');
+    const darkModeBgColor = getComputedStyle(document.documentElement).getPropertyValue('--dark-mode-bg-color');
+    const darkModeBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--dark-mode-border');
+    const darkModeLink = getComputedStyle(document.documentElement).getPropertyValue('--dark-link--color');
 
     return {
         bodyLightColor,

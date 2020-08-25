@@ -138,7 +138,7 @@ input[type='checkbox']:checked + label > .ball{
  다크 모드 선호   =>   다크 모드   :  라이트 모드
 ```
 
-> > > Redux사이트의 경우 `실시간으로 모드의 변화를 감지`하지만, 페이지에 처음 입장했을 때는 OS의 선호모드를 인지하지 못한다...🤯 어떻게 구현하는게 맞을까? 고민이 된다.
+> > > Redux사이트의 경우 `실시간으로 모드의 변화를 감지`하지만, 페이지에 처음 입장했을 때는 OS의 선호모드를 인지하지 못한다...🤯 어떻게 구현하는게 맞을까? 고민이 된다. (Improvment에 현재구현상태 추가)
 
 <br />
 <br />
@@ -149,7 +149,56 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 }
 ```
 
-> `window.matchMedia('(prefers-color-scheme: dark)')`는 주어진 문자열에 해당하는 미디어 쿼리의에 대한 분석결과를 객체로서 반환한다. 그 객체 안에는 `matches`라는 속성이 있다. 이것은 matchMedia()의 미디어쿼리 문자열이 문서안에서 사용되었다면 true, 그렇지 않으면 false를 반환한다. 즉 이를 이용하면 현재 시스템에서 다크모드 선호 여부를 파악할 수 있고, 이를 통해서 토글키의 기능을 동적으로 바꿔줄 수 있게 된다.
+> `window.matchMedia('(prefers-color-scheme: dark)')`는 주어진 문자열에 해당하는 미디어 쿼리의에 대한 분석결과를 객체로서 반환한다. 그 객체 안에는 `matches`라는 속성이 있다. 이것은 matchMedia()의 미디어쿼리 문자열이 문서안에서 사용되었다면 true, 그렇지 않으면 false를 반환한다. 이를 이용하면 현재 시스템에서 다크모드 선호 여부를 파악할 수 있게 된다.
+
+<br />
+
+### dispatchEvent syntax : **UPDATE**
+
+> `dispatch`란 `보내다, 급파하다`라는 의미를 갖고있다. `dispatch event`는 **이벤트를 보내다**라는 의미가 되어 특정이벤트를 호출하는 메소드이다.(이벤트 트리거)
+
+```HTML
+<input type="text" class="input" width="200" />
+<button class="box">button</button>
+<input type="checkbox" name="" id="checkbox" />Do your Best??
+```
+
+```javascript
+const $box = document.querySelector('.box');
+const $input = document.querySelector('.input');
+const $checkbox = document.querySelector('#checkbox');
+
+$checkbox.addEventListener('change', (e) => {
+    alert('Yes I do my best!! 🚀');
+    //console.log($checkbox.checked);
+});
+
+$box.addEventListener('click', (e) => {
+    console.log('clicked');
+    //클릭이벤트가 일어나면 키보드 이벤트를 유발한다.
+    //키보드 이벤트의 경우엔 옵션으로 어떤 키를 누를 것인지에 대한 것을 넣을수있다.
+    //syntax : target-element.dispatchEvent(event 객체)
+    //-> 내가 호출할 이벤트에 대해서 찾아보고 필요한 내용을 추가할 수 있다.
+    $input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+});
+
+$input.addEventListener('keydown', (e) => {
+    const { key } = e;
+    if (key === 'Enter') {
+        alert('하이룽!');
+    } else if (key === ' ') {
+        //키보드 이벤트가 일어나면 체크박스이벤트를 유발한다.
+        //단, value를 변경시키는 것은 아니다. 이벤트만 유발한다.
+        //$checkbox.checked 값이 직접 체크박스를 눌렀을 때의 값과
+        //트리거되었을때의 값이 다르다
+        $checkbox.dispatchEvent(new Event('change'));
+    }
+});
+
+window.addEventListener('load', (e) => {
+    $input.focus();
+});
+```
 
 <br />
 
@@ -171,4 +220,4 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 
         > 체크박스 이벤트를 트리거하는 방법을 못찾겠다. 마치 코드로 `click()`하면 클릭이벤트가 발생하듯이 말이다.(제이쿼리에 `trigger()`같은 역할을 구현하고 싶은 것) 그렇지 않고서는 선호모드가 다크 모드인 경우 시작 순서를 바꿀 수가 없는 것 같다. 지금 조건문으로 나눠서 구현되어 있지만 그 방법보다는 좀 더 나은 방법을 찾고 있다.
 
-        > > 잡았다 요놈😎 [dispatchEvent](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent)
+        > > UPDATE) 잡았다 요놈😎 **[dispatchEvent](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/dispatchEvent)**
