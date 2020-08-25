@@ -35,5 +35,5 @@
 |  05  |        [Infinite Scroll](day05/README.md)        |  20.08.21   |
 |  06  |         [Movie Filter](day06/README.md)          |  20.08.22   |
 |  07  |        [MVC Calculator](day07/README.md)         |  20.08.23   |
-|  08  |    [Cute Dog Image Gallary](day08/README/md)     | 20.08.24/25 |
+|  08  |    [Cute Dog Image Gallary](day08/README.md)     | 20.08.24/25 |
 |      |                                                  |             |
