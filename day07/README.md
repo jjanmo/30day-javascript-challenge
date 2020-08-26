@@ -1,11 +1,15 @@
-# Day07 : MVC Calculator
+# Day07 : Calculator based Prototype
 
-> MVC 패턴으로 만든 기본사칙연산 계산기( + OOP )
+> prototype개념을 바탕으로 만든 계산기
 
-> 내부 로직 미완성 : `MVC 패턴으로 구현하는 것`에 대해서 아직 익숙치 않다...😱
+> 기본적인 사칙연산 가능, 몇가지 기능들이 구현 안되었다👺
 
 # Preview
 
+![]()
+
 # Challenge
+
+##
 
 # Improvement
