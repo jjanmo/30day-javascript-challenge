@@ -99,6 +99,7 @@ App.prototype = {
             this.setOperator(operator);
             this.renderEquation(operator);
         } else if (target.className.includes('equal')) {
+            if (this.equal) return;
             this.setEqual(value);
             this.renderEquation(value);
             const result = this.calculate(this.operator);

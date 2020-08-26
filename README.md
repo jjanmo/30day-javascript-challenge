@@ -34,6 +34,6 @@
 |  04  |      [Currency Converter](day04/README.md)       |  20.08.20   |
 |  05  |        [Infinite Scroll](day05/README.md)        |  20.08.21   |
 |  06  |         [Movie Filter](day06/README.md)          |  20.08.22   |
-|  07  |  [Calculator based Prototype](day07/README.md)   |  20.08.23   |
+|  07  |  [Calculator based Prototype](day07/README.md)   | 20.08.23/26 |
 |  08  |    [Cute Dog Image Gallary](day08/README/md)     | 20.08.24/25 |
 |      |                                                  |             |
