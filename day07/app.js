@@ -9,6 +9,7 @@ function App($target) {
     this.operator = '';
     this.equal = '';
     this.result = '';
+    this.previosOperator = '';
 }
 
 App.prototype = {
@@ -29,82 +30,109 @@ App.prototype = {
         this.$calculator.addEventListener('click', this.onClick.bind(self));
         this.$clear.addEventListener('dblclick', this.ondblclick.bind(self));
     },
-    setResult: function (value) {
-        this.result = value;
+    initNumber: function () {
+        this.firstNumber = '';
+        this.secondNumber = '';
+    },
+    setOperator: function (value) {
+        this.operator = value;
     },
     setEqual: function (value) {
         this.equal = value;
     },
+    setResult: function (value) {
+        this.result = value;
+    },
     setNumber: function (value) {
         if (this.operator) {
             if (this.secondNumber) {
-                this.secondNumber = Number(this.secondNumber + value);
+                this.secondNumber = this.secondNumber + value;
             } else {
                 this.secondNumber = value;
             }
         } else {
             if (this.firstNumber) {
-                this.firstNumber = Number(this.firstNumber + value);
+                this.firstNumber = this.firstNumber + value;
             } else {
                 this.firstNumber = value;
             }
         }
     },
-    setOperator: function (value) {
-        this.operator = value;
-    },
     renderResult: function () {
         if (this.operator) {
-            this.$result.textContent = this.equal ? this.result : this.secondNumber;
+            if (this.equal) {
+                this.$result.textContent = this.result;
+            } else {
+                this.$result.textContent = this.secondNumber;
+            }
         } else {
             this.$result.textContent = this.firstNumber;
         }
     },
-    renderEquation: function (value) {
-        this.$equation.textContent = this.$equation.textContent
-            ? `${this.$equation.textContent} ${this.$result.textContent} ${value}`
-            : `${this.$result.textContent} ${value}`;
+    renderEquation: function (isChanged) {
+        if (this.firstNumber && this.operator && !this.secondNumber) {
+            if (isChanged) {
+                this.$equation.textContent = `${this.$equation.textContent.slice(0, -2)} ${this.operator}`;
+            } else {
+                this.$equation.textContent = `${this.firstNumber} ${this.operator}`;
+            }
+        } else if (this.firstNumber && this.operator && this.secondNumber) {
+            if (this.equal) {
+                this.$equation.textContent = `${this.$equation.textContent} ${this.secondNumber} ${this.equal}`;
+            } else {
+                this.$equation.textContent = `${this.$equation.textContent} ${this.secondNumber} ${this.operator}`;
+            }
+        }
     },
     onClick: function (e) {
         const { target } = e;
         const value = target.textContent;
+        let previousOperator = '';
         if (target.className.includes('number')) {
-            if (this.firstNumber && this.secondNumber && this.operator && this.equal && this.result) {
+            if (value === '0' && this.$result.textContent === '0') return;
+            if (this.firstNumber.length > 10 && !this.operator) {
+                previousOperator = this.operator;
+                return;
+            }
+            if (this.secondNumber.length > 10 && previousOperator !== this.operator) return;
+            if (this.equal) {
                 this.initialize();
             }
-            const number = value;
-            this.setNumber(number);
+            this.setNumber(value);
             this.renderResult();
         } else if (target.className.includes('operator')) {
-            const operator = value;
-            if (this.firstNumber && this.secondNumber && this.operator && this.equal && this.result) {
-                //식한개 계산 후
-                const result = this.result;
-                this.initialize();
+            if (this.firstNumber && !this.operator && !this.secondNumber) {
+                this.setOperator(value);
+                this.renderEquation();
+            } else if (this.firstNumber && this.operator && !this.secondNumber) {
+                //exchange operator
+                this.setOperator(value);
+                this.renderEquation(true);
+            } else if (this.firstNumber && this.operator && this.secondNumber) {
+                //continuous calculation
+                const result = this.calculate(this.operator);
+                this.setOperator(value);
+                this.renderEquation();
+                this.initNumber();
+                this.setOperator('');
                 this.setNumber(result);
                 this.renderResult();
-            } else if (this.firstNumber && this.secondNumber && this.operator) {
-                //연속 계산
-                // const result = this.calculate(this.operator);
-                // this.setResult(result);
-                // console.log(this.firstNumber, this.secondNumber, result);
-                // this.setOperator(operator);
-                // this.renderEquation(operator);
-                // this.secondNumber = result;
-                // this.renderResult();
-                return;
-            } else if (this.firstNumber && this.operator) {
-                //연산자 교환
+                this.setOperator(value);
             }
-            this.setOperator(operator);
-            this.renderEquation(operator);
         } else if (target.className.includes('equal')) {
             if (this.equal) return;
-            this.setEqual(value);
-            this.renderEquation(value);
+            if (!this.firstNumber || !this.operator || !this.secondNumber) {
+                this.initialize();
+                return;
+            }
             const result = this.calculate(this.operator);
-            this.setResult(result);
-            this.renderResult(this.$result);
+            this.setEqual(value);
+            this.renderEquation();
+            this.initNumber();
+            this.setOperator('');
+            this.setNumber(result);
+            this.renderResult();
+            this.setOperator(value);
         } else if (target.className.includes('clear')) {
             if (this.firstNumber && this.secondNumber && this.operator && this.equal && this.result) {
                 this.initialize();
@@ -119,8 +147,8 @@ App.prototype = {
         this.initialize();
     },
     calculate: function () {
-        const x = Number(this.firstNumber);
-        const y = Number(this.secondNumber);
+        const x = Number.isInteger(Number(this.firstNumber)) ? Number(this.firstNumber) : Number(this.firstNumber).toFixed(2);
+        const y = Number.isInteger(Number(this.secondNumber)) ? Number(this.secondNumber) : Number(this.secondNumber).toFixed(2);
         switch (this.operator) {
             case '+': {
                 return this.add(x, y);
@@ -132,9 +160,8 @@ App.prototype = {
                 return this.multiply(x, y);
             }
             case '/': {
-                if (x === 0) {
-                    this.$display.innerHTML = '<div class="message" Can not divided by zero 😱</div>';
-                    return '';
+                if (y === 0) {
+                    return "Can't divided by zero";
                 }
                 return this.divide(x, y);
             }

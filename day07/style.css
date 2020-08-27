@@ -49,6 +49,7 @@ h1 > span {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    user-select: none;
 }
 .key:hover {
     background-color: #54a0ff;
@@ -64,6 +65,7 @@ h1 > span {
 }
 .result {
     width: 100%;
+    font-size: 1.4rem;
 }
 .app > div:first-child {
     grid-column: 1/4;
@@ -139,8 +141,4 @@ h1 > span {
 .app > div:last-child {
     grid-column: 4;
     grid-row: 5;
-}
-.message {
-    font-size: 1.1rem;
-    color: #f1c40f;
 }
