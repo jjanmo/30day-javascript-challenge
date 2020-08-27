@@ -12,6 +12,8 @@
 
 ![update-analog-clock](./image/analog-clock.PNG)
 
+> 숫자 업데이트 😁
+
 # Challenge
 
 ## analog clock
@@ -136,4 +138,4 @@ function setRotationRatioPerDegree(element, value){
 
     > **생각)** 이런 식으로 삼각함수를 이용하여 접근하여 고민하다보면 해결되지않을까🙄
 
-    > > **UPDATE)** 이 부분을 이렇게 계산을 하지않고 `CSS transform rotate` 만으로 해결하는 방법이 있었다. 하지만 숫자가 뒤집어진다는 단점이 있다.😨
+    > **UPDATE)** 이 부분을 이렇게 계산을 하지않고 `CSS transform rotate` 만으로 해결하는 방법이 있었다. 하지만 숫자가 뒤집어진다는 단점이 있다.😨
