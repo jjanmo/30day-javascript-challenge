@@ -2,6 +2,8 @@
 
 > 현재 개봉된 영화를 원하는 조건에 맞게 필터링하여 분류하는 기능 구현
 
+> [DEMO](https://codesandbox.io/s/day06movie-filter-xzngy)
+
 <br/>
 
 # Preview
@@ -54,7 +56,7 @@ function handleExitModal() {}
 
 # Improvement
 
--   `movie sort` 기능을 추가해보자
+-   [ ] `movie sort` 기능을 추가해보자
 
     > `평점/인기`에 따른 `오름차순/내림차순`
 

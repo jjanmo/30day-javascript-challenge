@@ -2,6 +2,8 @@
 
 > 디지털 시계와 아날로그 시계의 구현
 
+> [DEMO](https://codesandbox.io/s/day02analogclock-vs-digitalclock-xgjnn)
+
 # Preview
 
 ![preview](image/preview.jpg)
@@ -80,7 +82,7 @@
 
 ### How to use CSS variable in JavaScript : **UPDATE**
 
- > 시계 바늘을 좀 더 매끄럽게 변경하는데 사용하였다.
+> 시계 바늘을 좀 더 매끄럽게 변경하는데 사용하였다.
 
 ```CSS
 .hand{
@@ -89,6 +91,7 @@
   transform : translateX(-50%) rotate(var(--rotation));
 }
 ```
+
 > 시계 바늘의 공통 CSS를 추가한다.
 
 ```JavaScript
@@ -105,26 +108,27 @@ function paintAnalogClock(){
 }
 
 function setRotationRatioPerDegree(element, value){
-  element.style.setProperty('--rotate-degree', `${value * 360}deg`); 
+  element.style.setProperty('--rotate-degree', `${value * 360}deg`);
 }
 ```
->  처음 방법은 rotate degree를 매 초마다 직접 구해서 그 값을 이용해서 transform rotate를 수행하였다. 그렇게 하면 분/시 바늘이 점차적으로 움직이지 않고 초가 분이 바뀌거나 시가 바뀌는경우에만 움직이게 된다. 즉 바늘의 움직임이 약간 부자연스러울 수 있다.(점핑현상이 나타난다.)
- 
+
+> 처음 방법은 rotate degree를 매 초마다 직접 구해서 그 값을 이용해서 transform rotate를 수행하였다. 그렇게 하면 분/시 바늘이 점차적으로 움직이지 않고 초가 분이 바뀌거나 시가 바뀌는경우에만 움직이게 된다. 즉 바늘의 움직임이 약간 부자연스러울 수 있다.(점핑현상이 나타난다.)
+
 > 지금 방법은 각 초와 분과 시 바늘의 현재의 위치가 시계 전체(360도) 중에서 얼마의 비율을 갖고 있는지를 구한 것이다. 거기에 초가 지남에 따라서, 분이 지남에 따라서 바늘이 아주 조금씩 움직이는데 초/분 비율을 더함으로서 이를 나타내었다. 이제 분/시 바늘은 자연스럽게 움직인다.
 
->	 `element.style.setProperty('property-name', value)` CSS variable 역시 property이기 때문에 이렇게 접근이 가능하다(setter)
+>      `element.style.setProperty('property-name', value)` CSS variable 역시 property이기 때문에 이렇게 접근이 가능하다(setter)
 
-> **주의)** rotate(⭐)  안의 별표의 값은 `숫자deg` 이다. 그렇기 때문에 value가 숫자만 아님을 인지하다. 
+> **주의)** rotate(⭐) 안의 별표의 값은 `숫자deg` 이다. 그렇기 때문에 value가 숫자만 아님을 인지하다.
 
 <br />
 
 # Improvement
 
--   `Canvas`를 이용한 아날로그 시계의 구현
+-   [ ] `Canvas`를 이용한 아날로그 시계의 구현
 
     > 디지털 시계 같은 경우에는 어렵지 않기 때문에 대부분 초창기에 많이 구현한다. `Date`라는 `built-in object`를 소개하기 위해서 같이 나오는 주제이다. 하지만 아날로그 시계 같은 경우는 구현하지 않는 경우가 많다. 오늘보니 왜 그런지 `어림짐작`할 수 있었다. 그리고 사실 아날로그 시계를 이런식으로 구현할수있다는 것도 최근에 알았다. `Canvas`를 알아야 구현하는 것이라고만 생각하고 있었는데, 나의 무지였던 것 같다.
 
--   아날로그 시계에 `숫자` 찍기
+-   [x] 아날로그 시계에 `숫자` 찍기
 
     > 이 부분은 수학적 능력이 요구된다. 시도는 해보았지만 원하는 위치에 시간을 제대로 찍어낼 수 없었다.
 

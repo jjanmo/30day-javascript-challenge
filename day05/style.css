@@ -133,3 +133,19 @@ main {
 .hidden {
     display: none;
 }
+@media (max-width: 992px) {
+    .image-list {
+        grid-template-columns: repeat(3, 200px);
+    }
+    .image {
+        margin: 7px auto;
+        width: 180px;
+        height: 180px;
+    }
+    h1 {
+        font-size: 2.4rem;
+    }
+    header > div {
+        font-size: 0.9rem;
+    }
+}

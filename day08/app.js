@@ -6,7 +6,6 @@ const $rightButton = document.querySelector('.right-button');
 const $leftBar = document.querySelector('.left-bar');
 const $rightBar = document.querySelector('.right-bar');
 const $thumbs = document.querySelectorAll('.thumb');
-const $bar = document.querySelector('.bar');
 
 let stopMoving;
 

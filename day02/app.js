@@ -5,9 +5,6 @@ const $clossButtons = document.querySelectorAll('.close-button');
 const $digitalClockContainer = document.querySelector('.digital-clock-container');
 const $analogClockContainer = document.querySelector('.analog-clock-container');
 const $digitalClock = document.querySelector('.digital-clock');
-const $analogHour = document.querySelector('.analog-hour');
-const $analogMinute = document.querySelector('.analog-minute');
-const $analogSecond = document.querySelector('.analog-second');
 
 let digitalInterval;
 let analogInterval;
@@ -90,9 +87,7 @@ function handleCloseButton(e) {
 function init() {
     $analogButton.addEventListener('click', handleClickButton);
     $digitalButton.addEventListener('click', handleClickButton);
-    $clossButtons.forEach((closeButton) =>
-        closeButton.addEventListener('click', handleCloseButton)
-    );
+    $clossButtons.forEach((closeButton) => closeButton.addEventListener('click', handleCloseButton));
 }
 
 init();

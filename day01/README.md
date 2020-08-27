@@ -1,5 +1,7 @@
 # Day01 : Piano Keyboard
 
+> [DEMO](https://codesandbox.io/s/day01keyboard-piano-vioih)
+
 # Preview
 
 ![piano1](image/piano.png)
@@ -70,7 +72,7 @@
 
 # Improvement
 
--   악보를 입력하면 악보의 음을 자동으로 연주해주는 기능
+-   [ ] 악보를 입력하면 악보의 음을 자동으로 연주해주는 기능
 
     > **생각1)** 모든 피아노의 음을 입력하는 경우, 악보의 각각의 음표와 매칭되는 음을 찾아서 연주할 수 있도록 만들어주면 되지않을까?
 

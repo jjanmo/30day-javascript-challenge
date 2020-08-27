@@ -8,6 +8,10 @@
 >
 > > 연속계산 / 연산자 교체 / 클리어기능 2가지(전체 클리어 / 숫자 클리어) 등
 
+> [DEMO](https://codesandbox.io/s/day07calculator-based-prototype-ijgwq)
+
+> [NotPrototype Calculator DEMO](https://codesandbox.io/s/jscalculator-okgx3)
+
 # Preview
 
 ![calculator](./image/calculator.gif)
