@@ -36,4 +36,4 @@
 |  06  |         [Movie Filter](day06/README.md)          |  20.08.22   |
 |  07  |  [Calculator based Prototype](day07/README.md)   | 20.08.23/26 |
 |  08  |    [Cute Dog Image Gallary](day08/README.md)     | 20.08.24/25 |
-|  09  |       [Dropdown Navibar](day09/README.md)        |  20.08.27   |
+|  09  |      [Responsive navibar](day09/README.md)       |  20.08.27   |

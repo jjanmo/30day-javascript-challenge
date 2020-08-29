@@ -4,26 +4,58 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://kit.fontawesome.com/1433f86547.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="./style.css" />
         <title>Dropdown Navibar</title>
     </head>
     <body>
         <header>
-            <div>
-                <div class="logo"><i class="fas fa-meteor"></i></div>
+            <div class="logo"><i class="fas fa-meteor"></i></div>
+            <div class="hamberger">
+                <div class="open"><i class="fas fa-bars"></i></div>
+                <div class="close"><i class="fas fa-times"></i></div>
             </div>
-            <div>
+            <div class="menu">
                 <ul>
-                    <li><a href="#">features</a></li>
-                    <li><a href="#">pricing</a></li>
-                    <li><a href="#">why?</a></li>
-                    <li><a href="#">apps</a></li>
-                    <li><a href="#">log in</a></li>
-                    <li><a href="#">sign up</a></li>
+                    <li class="header-link no-dropdown"><a href="#">features</a></li>
+                    <li class="header-link no-dropdown"><a href="#">pricing</a></li>
+                    <li class="header-link dropdown">
+                        <a href="#">why?</a>
+                        <ul class="why-down">
+                            <li><a href="#">For team</a></li>
+                            <li><a href="#">For SaaS</a></li>
+                            <li><a href="#">For Law firms</a></li>
+                            <li><a href="#">For Agencies</a></li>
+                        </ul>
+                    </li>
+                    <li class="header-link dropdown">
+                        <a href="#">apps</a>
+                        <ul class="apps-down">
+                            <li><a href="#">Mobile App</a></li>
+                            <li><a href="#">Desktop App</a></li>
+                            <li><a href="#">Integrations</a></li>
+                        </ul>
+                    </li>
+                    <li class="header-link no-dropdown"><a href="#">log in</a></li>
+                    <li class="header-link no-dropdown"><a href="#">sign up</a></li>
                 </ul>
             </div>
         </header>
-        <main></main>
-        <script src="app.js"></script>
+        <main>
+            <section>
+                <picture>
+                    <img src="image/greece.jpg" alt="Lake Doxa, Feneos, Greece" />
+                    <span class="location">Lake Doxa, Feneos, Greece</span>
+                </picture>
+                <picture>
+                    <img src="image/canada.jpg" alt="Port Bruce, ON, Canada" />
+                    <span class="location">Port Bruce, ON, Canada</span>
+                </picture>
+                <picture>
+                    <img src="image/usa.jpg" alt="Diablo Point, California, USA" />
+                    <span class="location">Diablo Point, California, USA</span>
+                </picture>
+            </section>
+        </main>
+        <script src="./app.js"></script>
     </body>
 </html>
