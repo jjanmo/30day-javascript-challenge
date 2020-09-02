@@ -51,9 +51,9 @@
     const target = document.querySelector(`div[data-key='${e.code}']`);
     ```
 
--   transformend event
+-   transitionend event
 
-    > `transformend event` : _이러한 이벤트가 있다는 것을 오늘 처음 알게되었다._ 이 이벤트 CSS의 transform이 끝날 때 일어나는 이벤트이다. 이벤트 속성을 출력해보면 CSS의 transform이 일어날 때마다(각각이 끝날 때마다) 콘솔창에 내역이 찍힌다. 또한 `e.target`으로 하여 transform이 일어난 타켓을 특정할 수 있다. 그렇기 때문에 keydown이 일어난 후에 위 이벤트를 이용하여 건반이 눌리고 눌리는 모습이 진행된 후에 조작을 할 수 있게 된다.
+    > `transitionend event` : _이러한 이벤트가 있다는 것을 오늘 처음 알게되었다._ 이 이벤트 CSS의 transition이 끝날 때 일어나는 이벤트이다. 이벤트 속성을 출력해보면 CSS의 transition이 일어날 때마다(각각이 끝날 때마다) 콘솔창에 내역이 찍힌다. 또한 `e.target`으로 하여 transition이 일어난 타켓을 특정할 수 있다. 그렇기 때문에 keydown이 일어난 후에 위 이벤트를 이용하여 건반이 눌리고 눌리는 모습이 진행된 후에 조작을 할 수 있게 된다.
 
     ```javascript
     target.addEventListener('transitionend', function (e) {
@@ -61,7 +61,7 @@
     });
     ```
 
-    > 여기서 주의점은 반드시 `event의 타겟에서는 transfrom이 일어나야한다`. 만약에 transform이 일어나지 않는다면 이벤트가 발생하지않는다.
+    > 여기서 주의점은 반드시 `event의 타겟에서는 transition이 일어나야한다`. 만약에 transition이 일어나지 않는다면 이벤트가 발생하지않는다.
 
 ## `audio` 태그
 
