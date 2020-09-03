@@ -151,7 +151,7 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 }
 ```
 
-> `window.matchMedia('(prefers-color-scheme: dark)')`는 주어진 문자열에 해당하는 미디어 쿼리의에 대한 분석결과를 객체로서 반환한다. 그 객체 안에는 `matches`라는 속성이 있다. 이것은 matchMedia()의 미디어쿼리 문자열이 문서안에서 사용되었다면 true, 그렇지 않으면 false를 반환한다. 이를 이용하면 현재 시스템에서 다크모드 선호 여부를 파악할 수 있게 된다.
+> `window.matchMedia('(prefers-color-scheme: dark)')`는 주어진 문자열에 해당하는 미디어 쿼리의에 대한 분석결과를 객체로서 반환한다. 그 객체 안에는 `matches`라는 속성이 있다. 이것은 matchMedia()의 미디어쿼리 문자열이 현재 화면에서 사용되었다면 true, 그렇지 않으면 false를 반환한다. 이를 이용하면 현재 시스템에서 다크모드 선호 여부를 파악할 수 있게 된다.
 
 <br />
 
