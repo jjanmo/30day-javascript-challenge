@@ -67,6 +67,8 @@
 
 - 두더지게임
 
+  > [Assets](https://assetstore.unity.com/packages/templates/packs/whack-a-mole-game-template-61880)
+
 - slot machine game
 
 - Hang Man Game
@@ -80,3 +82,10 @@
   > https://codepen.io/bbx/pen/Jxoqdg
 
   > > 여기선 CSS hover효과로 구현했지만, 난 JS를 이용한 클릭효과로 바꿀거임
+
+- Poketmon omok
+
+- vote system
+
+- Tetris : Canvas버전
+  > [Assets](https://assetstore.unity.com/packages/templates/tetris-template-mobile-ready-72717)
